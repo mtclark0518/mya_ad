@@ -23,7 +23,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
 });
 
-client.connect();
+// client.connect();
 db.sequelize.sync().then(function() {
     app.listen(PORT, () => console.log('listening on ' + PORT));
 });
