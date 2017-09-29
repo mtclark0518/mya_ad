@@ -1,17 +1,17 @@
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 3000;
-const db = require('./db/models');
+// const db = require('./db/models');
 const app = express();
 
-if('development' === app.get('env')) {
-    app.use(express.errorHandler());
-}
-// const {Client} = require('pg');
-// const client = new Client({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: true,
-// });
+// if('development' === app.get('env')) {
+//     app.use(express.errorHandler());
+// }
+const {Client} = require('pg');
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+});
 
 
 app.use(express.static(path.join(__dirname, 'assistant_director/build')));
@@ -23,8 +23,8 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
 });
 
-// client.connect();
-db.sequelize.sync().then(function() {
-    app.listen(PORT, () => console.log('listening on ' + PORT));
-});
+client.connect();
+// db.sequelize.sync().then(function() {
+app.listen(PORT, () => console.log('listening on ' + PORT));
+
 
