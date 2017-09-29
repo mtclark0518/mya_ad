@@ -12,18 +12,17 @@ const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
 });
-
+client.connect();
 
 app.use(express.static(path.join(__dirname, 'assistant_director/build')));
 
-app.get('/test', (req, res) => {
+app.get('/api/test', (req, res) => {
     res.json('fuckin a bro');
 });
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
+// });
 
-client.connect();
 // db.sequelize.sync().then(function() {
 app.listen(PORT, () => console.log('listening on ' + PORT));
 
