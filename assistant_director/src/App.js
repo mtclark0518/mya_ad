@@ -14,19 +14,25 @@ class App extends Component {
       this.testing();
     }
     testing(){
-      axios.get('api/test')
+      axios.get('api/location')
         .then(response => {
           this.setState({ test: response.data});
+          console.log(this.state.test)
         });
     }
   render() {
+    let houses = this.state.test;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-intro">
-          {this.state.test}
-        </h1>        
+        <h1 
+        className="App-intro"
+        locations={houses}
+          >
+          fuck u dude
+        </h1>
+
         </header>
 
       </div>

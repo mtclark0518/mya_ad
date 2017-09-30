@@ -3,7 +3,7 @@
 
 
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://TheTDrive@localhost5432/project4');
+var sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://TheTDrive@localhost:5432/project4');
     
 //----------_------------------_-------------_----_---------
 // import models as sequelize models
