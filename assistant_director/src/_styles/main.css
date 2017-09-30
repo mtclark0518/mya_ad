@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+.App-header {
+    background-color: #222;
+    height: 50px;
+    padding: 20px;
+    color: white;
+}
+
+body {
+    background: rgba(155, 155, 155, .6);
+}
+
+.homePage {
+    background: rgba(rgba(253, 244, 137, 1.0));
+    width: 95%;
+    margin: 0 auto;
+}
+
+.landing {
+    text-align: center;
+}
+
+.container {
+    margin: auto;
+    background: #212221;
+}
+
+.dashHeading {
+    display: inline-block;
+    color: white;
+}
+
+.dashHeading span {
+    padding: 10px 25px;
+}
+
+.locations {
+    background: black;
+    padding: 5px 10px;
+    margin-top: 25px;
+    text-align: center;
+    box-shadow: 1px 1px 1em 1px black;
+}
+
+.location {
+    width: 48%;
+    margin: 1%;
+    display: inline-block;
+    background: white;
+    border-radius: 2px;
+}
+
+.location .heading {
+    padding-top: 1px;
+}
+
+.location h3 {
+    padding-bottom: 15px;
+}
+
+.gryffindor .heading {
+    background: #BA2811;
+    color: goldenrod;
+}
+
+.slytherin .heading {
+    background: #00732F;
+    color: silver;
+}
+
+.hufflepuff .heading {
+    background: #F4BA00;
+    color: #000;
+}
+
+.ravenclaw .heading {
+    background: #004D81;
+    color: #cd7f32
+}
+
+.student {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+button {
+    background: rgba(150, 150, 150, 1);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 15px;
+    margin: 0 5px;
+    box-shadow: 0px 0px 1px 0 black;
+}
+
+span.link {
+    color: green;
+    text-decoration: none;
+}

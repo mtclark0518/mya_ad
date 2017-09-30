@@ -1,7 +1,34 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../_styles/main.css';
+// import {CSSTransitionGroup} from 'react-transition-group'
+import LocationList from '../_components/LocationList';
+import '../_styles/main.css';
+// import '../_styles/animation.css'
+const axios = require('axios');
+// import StudentService from '../_services/Student'
+
+
 
 class Landing extends Component {
+
+	constructor(props){
+		super(props);
+		this.state = {
+			locations: [],
+		};
+	}
+	
+	componentDidMount() {
+      this.testing();
+    }
+    testing(){
+      axios.get('api/locations')
+        .then(response => {
+          this.setState({ locations: response.data});
+          console.log(this.state.locations);
+        });
+    }
 	
 	login = () => this.props.auth.login()
 
@@ -26,6 +53,9 @@ class Landing extends Component {
 					<div>
 						<div>
 								<button className='link'>admin</button>
+								<LocationList
+									locations={this.state.locations}
+								/>
 						</div>
 						
 					</div>
