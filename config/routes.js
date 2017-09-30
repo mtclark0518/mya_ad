@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const apiController = require('../db/controllers/api.controller';
+const apiController = require('../db/controllers/api.controller');
 
 
 
