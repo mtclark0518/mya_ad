@@ -27,9 +27,9 @@ app.get('/api/location', function(req, res) {
         res.json(locations);
     });
 });
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
+});
 
 // db.sequelize.sync().then(function() {
 app.listen(PORT, () => console.log('listening on ' + PORT));
