@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react'
 // import {CSSTransitionGroup} from 'react-transition-group'
-import Student from './student'
+import Student from './Student'
 import '../_styles/main.css';
 // import '../_styles/animation.css'
 // import Doughnut from './chart'
