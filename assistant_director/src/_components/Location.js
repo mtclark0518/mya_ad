@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react'
 // import {CSSTransitionGroup} from 'react-transition-group'
-// import Student from './student'
+import Student from './student'
 import '../_styles/main.css';
 // import '../_styles/animation.css'
 // import Doughnut from './chart'
@@ -24,18 +24,18 @@ class Location extends Component {
     render() {
         const activeState = this.state.active
         console.log(activeState)
-        // let classRoster = this.props.students.map( (student, index) => {
-        //     return(<Student
-        //         key={index}
-        //         location={student.locationId}
-        //         id={student.id}
-        //         firstName={student.firstName} 
-        //         lastName={student.lastName}
-        //         gender={student.gender}
-        //         pin={student.pin}
-        //         onMoveStudent={this.props.onMoveStudent}/>)
-        // })
-        // console.log(classRoster)
+        let classRoster = this.props.students.map( (student, index) => {
+            return(<Student
+                key={index}
+                location={student.locationId}
+                id={student.id}
+                firstName={student.firstName} 
+                lastName={student.lastName}
+                gender={student.gender}
+                pin={student.pin}
+                onMoveStudent={this.props.onMoveStudent}/>)
+        })
+        console.log(classRoster)
         return(
             <div className='location'>
             <div className={this.props.name}>
@@ -48,8 +48,11 @@ class Location extends Component {
                 <div className={this.state.active}>
                 {
                     this.state.active === true && (
+                            <div>
+                                {classRoster}
                       <p>active state true</p>
-
+                            
+                            </div>
                           
                     )
                 }

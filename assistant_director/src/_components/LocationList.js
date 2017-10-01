@@ -8,7 +8,6 @@ import '../_styles/main.css';
 
 class LocationList extends Component {        
     render(){
-
         let locationArray = this.props.locations.map( (location) => {
             return(
                 <Location 

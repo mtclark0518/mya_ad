@@ -16,19 +16,35 @@ class Landing extends Component {
 		super(props);
 		this.state = {
 			locations: [],
+			students: []
 		};
 	}
 	
 	componentDidMount() {
-      this.testing();
+      this.loadData();
     }
-    testing(){
+    loadData(){
       axios.get('api/locations')
         .then(response => {
-          this.setState({ locations: response.data});
-          console.log(this.state.locations);
-        });
-    }
+        	this.setState({ locations: response.data});
+			console.log(this.state.locations);})
+			.then(axios.get('api/students')
+			.then(response => {
+				this.setState({ students: response.data });
+			}));
+	}
+	moveStudent(id, item){
+		console.log('move student has been called');
+		axios({
+			method: 'PUT',
+			url: 'api/student/'+id, 
+			data:{data: item}})
+			.then(response => {
+				console.log(response.data);
+				this.loadData();
+			});
+	}
+
 	
 	login = () => this.props.auth.login()
 
@@ -55,7 +71,8 @@ class Landing extends Component {
 								<button className='link'>admin</button>
 								<LocationList
 									locations={this.state.locations}
-								/>
+									students={this.state.students}
+									onMoveStudent={this.moveStudent.bind(this)} />
 						</div>
 						
 					</div>
