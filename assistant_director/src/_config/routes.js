@@ -6,7 +6,7 @@ import Auth from '../_services/Auth';
 import history from '../history';
 import Landing from '../_containers/Landing';
 import Profile from '../_containers/Profile';
-
+import Family from '../_containers/Family';
 const auth = new Auth();
 
 const handleAuthentication = (nextState, replace) => {
@@ -25,7 +25,9 @@ export const makeMainRoutes = () => {
           <Route path="/landing" render={(props) => 
             <Landing auth={auth} {...props} />} 
           />
-
+          <Route path="/family" render={(props) => 
+            <Family {...props} />} 
+          />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} /> 
