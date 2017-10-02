@@ -1,24 +1,21 @@
 import React, {Component} from 'react';
 
+import { Form, Button, Radio } from 'semantic-ui-react'
+
+
 
 class UpdateStudent extends Component {
-	
-	
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: " "
-		}
-	}
-	
-	onInputChange(event){
-		console.log('input has changed');
-		console.log(this)
-		this.setState({
-			value: event.target.value,
-		});
+			value: '',
+		};
+		this.handleChange = this.handleChange.bind(this);
 	}
 
+	handleChange = (event, {value}) => {
+		this.setState({value})
+	}
 	onFormSubmit(event) {
         event.preventDefault();
 		console.log('edit submitted');
@@ -28,42 +25,53 @@ class UpdateStudent extends Component {
 			value: '',
 		});
 	}
-	render() {
-		return(
-			<div className="UpdateStudent">
-				<form onSubmit={event => this.onFormSubmit(event)}>
-                    
-					<div className="locationUpdateContainer">
-						<div className="radioInput">
-							<label>
-								<input value="1" type="radio" checked={this.state.value === "1"} onChange={event => this.onInputChange(event)}/>
-							Gryffindor
-							</label>
-						</div>
-						<div className="radioInput">
-							<label>
-								<input value="2" type="radio" checked={this.state.value === "2"} onChange={event=> this.onInputChange(event)}/>
-							Slytherin
-							</label>
-						</div>
-						<div className="radioInput">
-							<label>
-								<input value="3" type="radio" checked={this.state.value === "3"} onChange={event=> this.onInputChange(event)}/>
-							Hufflepuff
-							</label>
-						</div>
-						<div className="radioInput">
-							<label>
-								<input value="4" type="radio" checked={this.state.value === "4"} onChange={event=> this.onInputChange(event)}/>
-							Ravenclaw
-							</label>
-						</div>
-						<button type="submit">update</button> 
-					</div>
-				</form>
-			</div>
-		)
-	}
-}
 
+	render() {
+	    return (
+	      <Form onSubmit={event => this.onFormSubmit(event)}>
+	        <Form.Field>
+	          Selected value: <b>{this.state.value} </b>
+	        </Form.Field>
+	        <Form.Field>
+	          <Radio
+	            label='Gryffindor'
+	            name='radioGroup'
+	            value='1'
+	            checked={this.state.value === '1'}
+	            onChange={this.handleChange}
+	          />
+	        </Form.Field>
+	        <Form.Field>
+	          <Radio
+	            label='Slytherin'
+	            name='radioGroup'
+	            value='2'
+	            checked={this.state.value === '2'}
+	            onChange={this.handleChange}
+	          />
+	        </Form.Field>
+	        <Form.Field>
+	          <Radio
+	            label='Hufflepuff'
+	            name='radioGroup'
+	            value='3'
+	            checked={this.state.value === '3'}
+	            onChange={this.handleChange}
+	          />
+	        </Form.Field>
+	        <Form.Field>
+	          <Radio
+	            label='Ravenclaw'
+	            name='radioGroup'
+	            value='4'
+	            checked={this.state.value === '4'}
+	            onChange={this.handleChange}
+	          />
+	        </Form.Field>
+	        <Form.Field control={Button}>Submit</Form.Field> 
+	      </Form>
+	    )
+	  }
+}
 export default UpdateStudent;
+

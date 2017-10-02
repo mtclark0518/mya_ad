@@ -6,8 +6,8 @@ export default class Auth {
     domain: 'app77954785.auth0.com',
     clientID: 'fG2tG6SiXA2jiMSlfm7QtOaHcwV9Tdq9',
     redirectUri: 
-    'https://hidden-brushlands-41079.herokuapp.com/callback',
-    //  'http://localhost:3000/callback',
+    // 'https://hidden-brushlands-41079.herokuapp.com/callback',
+     'http://localhost:3000/callback',
     audience: 'https://app77954785.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
