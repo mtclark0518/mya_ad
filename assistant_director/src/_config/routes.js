@@ -21,7 +21,6 @@ export const makeMainRoutes = () => {
           <Route path="/" render={(props) => 
             <App auth={auth} {...props} />} 
           />
-          
           <Route path="/landing" render={(props) => 
             <Landing auth={auth} {...props} />} 
           />
