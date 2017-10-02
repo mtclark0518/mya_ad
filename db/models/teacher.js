@@ -6,7 +6,6 @@ module.exports = function(sequelize, Sequelize) {
         },
         isAdmin: {
             type: Sequelize.BOOLEAN,
-            notNull: true
         }
     });
     return teacher;

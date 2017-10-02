@@ -7,7 +7,7 @@ export default class Auth {
     clientID: 'fG2tG6SiXA2jiMSlfm7QtOaHcwV9Tdq9',
     redirectUri: 
     'https://hidden-brushlands-41079.herokuapp.com/callback',
-     // 'http://localhost:3000/callback',
+    //  'http://localhost:3000/callback',
     audience: 'https://app77954785.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
@@ -33,9 +33,9 @@ export default class Auth {
         this.auth0.parseHash((err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
                 this.setSession(authResult);
-                history.replace('/landing');
+                history.replace('/profile');
             } else if (err) {
-                history.replace('/landing');
+                history.replace('/profile');
                 console.log(err);
                 alert(`Error: ${err.error}. Check the console for further details.`);
             }
@@ -49,7 +49,7 @@ export default class Auth {
         localStorage.setItem('id_token', authResult.idToken);
         localStorage.setItem('expires_at', expiresAt);
         // navigate to the home route
-        history.replace('/landing');
+        history.replace('/profile');
     }
     getAccessToken() {
         const accessToken = localStorage.getItem('access_token')

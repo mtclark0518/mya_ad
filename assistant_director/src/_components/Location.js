@@ -45,7 +45,7 @@ class Location extends Component {
                         <h3>{ this.props.name}</h3>
                 </div>
 
-                <div className={this.state.active}>
+                <div>
                 {
                     this.state.active === true && (
                             <div>

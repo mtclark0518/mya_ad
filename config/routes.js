@@ -4,9 +4,9 @@ const apiController = require('../db/controllers/api.controller');
 
 
 //get teachers
-// router.get('/api/teachers', apiController.getTeachers);
+router.get('/api/teachers', apiController.getTeachers);
 //show or create a teacher
-// router.post('/api/teacher/:auth', apiController.showTeacher);
+router.post('/api/teacher/:auth', apiController.showTeacher);
 
 
 //get all students

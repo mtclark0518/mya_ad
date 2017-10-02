@@ -5,6 +5,7 @@ import Callback from '../_callback/callback';
 import Auth from '../_services/Auth';
 import history from '../history';
 import Landing from '../_containers/Landing';
+import Profile from '../_containers/Profile';
 
 const auth = new Auth();
 
@@ -29,6 +30,13 @@ export const makeMainRoutes = () => {
             handleAuthentication(props);
             return <Callback {...props} /> 
           }}/>
+          <Route path="/profile" render={(props) => (
+            !auth.isAuthenticated() ? (
+                <Redirect to = "/landing" />
+              ) : (
+                <Profile auth={auth} {...props} />
+              )
+            )} />
         </div>
       </Router>
   );

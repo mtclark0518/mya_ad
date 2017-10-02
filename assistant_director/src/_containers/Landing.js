@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../_styles/main.css';
-// import {CSSTransitionGroup} from 'react-transition-group'
+import { Button } from 'semantic-ui-react';
 import LocationList from '../_components/LocationList';
 import '../_styles/main.css';
-// import '../_styles/animation.css'
+import Profile from './Profile';
 const axios = require('axios');
-// import StudentService from '../_services/Student'
+
 
 
 
@@ -58,7 +57,7 @@ class Landing extends Component {
 					<h1>My AD</h1>
 					<h6>Classroom Management & Ratio Maintenance</h6>
 					<h4>
-					You are not logged in! Please { ' ' } <a style = {{ cursor: 'pointer' } } onClick = { this.login.bind(this) }> Log In </a> { ' ' } to continue. 
+						You are not logged in! Please { ' ' } <a style = {{ cursor: 'pointer' } } onClick = { this.login.bind(this) }> Log In </a> { ' ' } to continue. 
 					</h4>
 
 					</div>
@@ -68,7 +67,11 @@ class Landing extends Component {
 				isAuthenticated() && (
 					<div>
 						<div>
-								<button className='link'>admin</button>
+						<Link to="/profile">
+								<Button className='link'>
+									
+								</Button>
+								</Link>
 								<LocationList
 									locations={this.state.locations}
 									students={this.state.students}

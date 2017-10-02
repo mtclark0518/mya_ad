@@ -25,6 +25,8 @@ class App extends Component {
   
         </header>
 
+        <p> Parent Portal || Staff Portal </p>
+
       </div>
     );
   }
