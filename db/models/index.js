@@ -12,6 +12,7 @@ const Teacher = sequelize.import('./teacher');
 const Location = sequelize.import('./location');
 const Family = sequelize.import('./family');
 const Student = sequelize.import('./student');
+const Center = sequelize.import ('./center');
 
     
 
@@ -20,14 +21,25 @@ const Student = sequelize.import('./student');
 //----------_------------------_-------------_----_---------
 
 
-Student.belongsTo(Location);
-Location.hasMany(Student);
+Family.hasMany(Student);
 
-Teacher.belongsTo(Location);
+Center.hasMany(Student);
+Center.hasMany(Location);
+Center.hasMany(Teacher);
+
+Location.hasMany(Student);
 Location.hasMany(Teacher);
+Location.belongsTo(Center);
 
 Student.belongsTo(Family);
-Family.hasMany(Student);
+Student.belongsTo(Center);
+Student.belongsTo(Location);
+
+Teacher.belongsTo(Center);
+Teacher.belongsTo(Location);
+
+
+
 // wrap up our models into a variable
 var db = {};
 
@@ -35,7 +47,8 @@ db.models = {
     Teacher,
     Location,
     Student,
-    Family
+    Family,
+    Center
 };
 
 db.Sequelize = Sequelize;

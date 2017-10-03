@@ -11,10 +11,10 @@ module.exports = function(sequelize, Sequelize) {
             autoIncrement: true,
             allowNull: false
         },
-        locationId: {
+        centerId: {
             type: Sequelize.INTEGER,
-            allowNull: false,
-            },
+            allowNull: false
+        },
         familyId: {
             type: Sequelize.INTEGER,
             allowNull: false

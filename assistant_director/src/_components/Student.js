@@ -68,10 +68,7 @@ class Student extends Component {
             {
                 this.state.present === true && updateStudent === false && (
                     <div className='student'>
-                        <span>{this.props.firstName} </span> 
-                        <button
-                            onClick={this.update}>MOVE
-                        </button>
+                        <span onClick={this.update}>{this.props.firstName} </span> 
                     </div>
                 )
             }
