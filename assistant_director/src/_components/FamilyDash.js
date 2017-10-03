@@ -12,8 +12,7 @@ class FamilyDash extends Component {
                         firstName={student.firstName}
                         familyId={student.familyId}
                         locationId={student.locationId}
-                        gender={student.gender}
-                        onCheckin={this} />
+                        gender={student.gender} />
                 )
             })
             console.log(familiesStudents)

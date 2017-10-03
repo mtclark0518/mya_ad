@@ -20,18 +20,22 @@ class App extends Component {
             onClick={this.goTo.bind(this, 'landing')}>
             Home
         </Button>
-          {!isAuthenticated() && (
+          {
+            !isAuthenticated() &&
+            (
             <div>
-            <Button className="primary" onClick={this.login.bind(this)}>Staff-Portal</Button>
-            <Button className="primary" onClick={this.goTo.bind(this, 'family')}>Family-Portal</Button>
+              <Button className="primary" onClick={this.login.bind(this)}>Staff-Portal</Button>
+              <Button className="primary" onClick={this.goTo.bind(this, 'family')}>Family-Portal</Button>
             </div>
-            )}
-          {isAuthenticated() && (<Button className="secondary" onClick={this.logout.bind(this)}>log out</Button>)}
-  
+            )
+          }
+          {
+            isAuthenticated() &&
+            (
+              <Button className="secondary" onClick={this.logout.bind(this)}>log out</Button>
+            )
+          }
         </header>
-
-        <p> Parent Portal || Staff Portal </p>
-
       </div>
     );
   }

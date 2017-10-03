@@ -45,6 +45,14 @@ class Student extends Component {
             }
             {
                 this.state.present === true &&
+                (
+                    <div className="checkoutStudent">
+                        checkout student
+                    </div>
+                )
+            }
+            {
+                this.state.present === true &&
                 updateStudent === true && (
                     <div className="updateStudent">
                         <UpdateStudent

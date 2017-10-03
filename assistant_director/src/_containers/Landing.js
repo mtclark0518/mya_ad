@@ -65,20 +65,16 @@ class Landing extends Component {
 			}
 			{
 				isAuthenticated() && (
-					<div>
 						<div>
-						<Link to="/profile">
-								<Button className='link'>
-									
+							<Link to="/profile">
+								<Button className='link'>		
 								</Button>
-								</Link>
-								<LocationList
-									locations={this.state.locations}
-									students={this.state.students}
-									onMoveStudent={this.moveStudent.bind(this)} />
-						</div>
-						
-					</div>
+							</Link>
+							<LocationList
+								locations={this.state.locations}
+								students={this.state.students}
+								onMoveStudent={this.moveStudent.bind(this)} />
+						</div>	
 				)
 			}
 			</div> 
