@@ -29,22 +29,32 @@ function showTeacher(req, res) {
 //----------------------------------------------------------------
 
 function getFamilies(req, res) {
-    db.models.Family.findAll().then(function(families) {
-        console.log('here are the students');
+    db.models.Family.findAll({
+        include: [ { model: db.models.Student } ]
+    }).then(function(families) {
+        console.log('here are the families');
         res.json(families);
     });
 }
 function showFamily(req,res){
-    console.log(req.params.id);
-    const id = req.params.id;
+    console.log(req.params);
+    console.log(req.body)
     db.models.Family.findOne({
+        include: [ { model: db.models.Student } ],
         where: {
-            id: id
+            name: req.params.name
         }
     })
     .then(family => {
-        console.log('here is your student');
-        res.json(family);
+        console.log('family found');
+
+        if (family.dataValues.password === req.body.data) {
+            console.log('passwords match');
+            res.json(family);
+        } else {
+            console.log('passwords do not match');
+            res.sendStatus(404);
+        }
     });
 }
 

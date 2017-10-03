@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Select } from 'semantic-ui-react';
+import Family from '../_containers/Family'
+
+
 
 class FamilyCheckIn extends Component {
     constructor(props){
@@ -9,12 +12,52 @@ class FamilyCheckIn extends Component {
             password: ''
         }
     }
+
+
+
+    updateFamily(nameEvent){
+        console.log('update family function fired');
+        this.setState({
+            name: nameEvent.target.innerText
+        });
+    }
+    updatePassword(passwordEvent){
+        this.setState({
+            password: passwordEvent.target.value
+        });
+    }
+    onVerifyFamily(event){
+        event.preventDefault();
+        console.log('on verify family function fired')
+        this.props.onFamilyLogin(this.state.name, this.state.password);
+        this.setState({
+            name: ' ', password: ' '
+        });
+    }
     render(){
+        let familyArray = this.props.families.map( (family) => {
+            return(
+                <Family
+                    key={family.id}
+                    id={family.id}
+                    name={family.name}
+                    password={family.password}
+                    students={family.students} />
+            )
+        })
+        let familyNames = []
+        familyArray.forEach(function(family) {
+            let fam = {key: family.props.id, text: family.props.name, value: family.props.id}
+            familyNames.push(fam)
+        });
+        console.log(familyNames)
+
+    
         return(
-            <Form>
+            <Form onSubmit={event=> this.onVerifyFamily(event)}>
                 <Form.Group widths='equal'>
-                    <Form.Input label='Name' />
-                    <Form.Input label='Password' placeholder='password' />
+                    <Form.Select label='Name' options={familyNames} onChange={nameEvent => this.updateFamily(nameEvent)}/> 
+                    <Form.Input label='Password' type='password' placeholder='password' onChange={passwordEvent => this.updatePassword(passwordEvent)}/>
                 <Form.Button>Login</Form.Button>
                 </Form.Group>
             </Form>

@@ -18,6 +18,10 @@ router.post('/api/students', apiController.createStudent);
 //update a student
 router.put('/api/student/:id', apiController.updateStudent);
 
+//get all families
+router.get('/api/families', apiController.getFamilies);
+//get one family -- family 'auth' check
+router.post('/api/family/:name', apiController.showFamily);
 
 //show all possible locations
 router.get('/api/locations', apiController.showLocations);
