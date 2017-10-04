@@ -23,7 +23,7 @@ class StaffPortal extends Component {
 								isFamily={this.props.isFamily}
 								locations={this.props.locations}
 								students={this.props.students}
-								onMoveStudent={this.props.moveStudent} />
+								onMoveStudent={this.props.onMoveStudent} />
 						</div>	
 			</div> 
 		);

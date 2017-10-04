@@ -19,7 +19,8 @@ class LocationList extends Component {
                         locationId={student.locationId}
                         firstName={student.firstName}
                         gender={student.gender}
-                        homeRoom={student.homeRoom} />
+                        homeRoom={student.homeRoom}
+                        onMoveStudent={this.props.onMoveStudent} />
             )} else {
                 console.log('not checked in');
                 return    

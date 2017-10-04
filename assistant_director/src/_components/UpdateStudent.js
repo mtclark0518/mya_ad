@@ -8,7 +8,7 @@ class UpdateStudent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: '',
+			value: null,
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -17,12 +17,12 @@ class UpdateStudent extends Component {
 		this.setState({value})
 	}
 	onFormSubmit(event) {
-        event.preventDefault();
+    event.preventDefault();
 		console.log('edit submitted');
 		this.props.onMoveStudent(this.props.student.id, this.state.value)
 		this.props.onUpdate();
 		this.setState({
-			value: '',
+			value: null,
 		});
 	}
 
