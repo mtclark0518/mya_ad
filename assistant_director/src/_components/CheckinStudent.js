@@ -1,25 +1,25 @@
 import React, {Component} from 'react';
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 
 class CheckinStudent extends Component {
 
 
 
-    checkinStudent(event){
-
-
+    onFormSubmit(event){
+        event.preventDefault();
+        console.log('checkinStudent has been fired');
+        console.log(this.props.student.id);
+        this.props.onCheckin();
+        this.props.onCheckinStudent(this.props.student.id, true, this.props.student.homeRoom)
     }
     render(){
         return(
-                <div>
+                <Form onSubmit={event => this.onFormSubmit(event)}>
                     <div>
                         {this.props.student.firstName}
                     </div>                 
-                    <div>
-                        <Button basic color="blue"
-                        onClick={this.props.onCheckin}>check-in</Button>
-                    </div>
-                </div>
+                    <Form.Field control={Button}>check-in</Form.Field>
+                </Form>
         )
     }
 }

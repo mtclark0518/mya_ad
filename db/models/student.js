@@ -1,8 +1,5 @@
 var db = require('./index');
 
-const Location = db.Location
-const Family = db.Family
-
 module.exports = function(sequelize, Sequelize) {
     var student = sequelize.define('student', {
         id: {
@@ -15,12 +12,23 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.INTEGER,
             allowNull: false
         },
+        locationId: {
+            type: Sequelize.INTEGER
+        },
+        homeRoom: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+        },
         familyId: {
             type: Sequelize.INTEGER,
             allowNull: false
         },
         firstName: {
             type: Sequelize.STRING
+        },
+        checkedIn: {
+            type: Sequelize.BOOLEAN,
+            allowNull: false
         },
         gender: Sequelize.STRING,
     });

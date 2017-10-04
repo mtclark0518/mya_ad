@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button, Select } from 'semantic-ui-react';
-import Family from '../_containers/Family'
+import FamilyPortal from '../_containers/FamilyPortal'
 
 
 
@@ -37,7 +37,7 @@ class FamilyCheckIn extends Component {
     render(){
         let familyArray = this.props.families.map( (family) => {
             return(
-                <Family
+                <FamilyPortal
                     key={family.id}
                     id={family.id}
                     name={family.name}

@@ -2,6 +2,9 @@ const router = require('express').Router();
 const apiController = require('../db/controllers/api.controller');
 
 
+//show center
+router.get('/api/center/:id', apiController.showCenter);
+
 
 //get teachers
 router.get('/api/teachers', apiController.getTeachers);
@@ -17,11 +20,14 @@ router.get('/api/student/:id', apiController.showStudent);
 router.post('/api/students', apiController.createStudent);
 //update a student
 router.put('/api/student/:id', apiController.updateStudent);
+router.put('/api/student/checkin/:id', apiController.checkinStudent)
+
 
 //get all families
 router.get('/api/families', apiController.getFamilies);
 //get one family -- family 'auth' check
 router.post('/api/family/:name', apiController.showFamily);
+
 
 //show all possible locations
 router.get('/api/locations', apiController.showLocations);

@@ -1,35 +1,20 @@
 import React, { Component } from 'react';
 import FamilyCheckIn from '../_components/FamilyCheckIn';
 import FamilyDash from '../_components/FamilyDash';
-const axios = require('axios');
+const axios = require('axios')
 
-
-class Family extends Component {
+class FamilyPortal extends Component {
     
     constructor(props){
         super(props);
         this.state = {
             family: null,
-            families: []
         };
     }
 
-    componentDidMount() {
-        this.loadFamilies();
-    }
-    loadFamilies(){
-        axios.get('api/families')
-        .then(response => {
-            this.setState({ families: response.data });
-        }).then( ()=> {
-            if(this.state.family === null){
-                console.log( 'one')
-            } else { console.log('two')}
-        })
-    }
+
 
     verifyFamily(name, password){
-
         console.log(name + ' ' + password);
         axios({
             method: 'POST',
@@ -39,30 +24,25 @@ class Family extends Component {
         .then(response => {
             console.log(response);
             this.setState({ family: response.data});
-            this.loadFamilies();
         });
     }
     render(){
         return(
             <div className="Family">
-            {
-                this.state.family === null &&
-                (
+                {this.state.family === null && (
                     <FamilyCheckIn
                         family={this.state.family}
-                        families={this.state.families}
+                        families={this.props.families}
                         onFamilyLogin={this.verifyFamily.bind(this)} />
-                )
-            }
-            {
-                this.state.family !== null &&
-                (
+                )}
+                {this.state.family !== null && (
                     <FamilyDash
-                        family={this.state.family} />
-                )
-            }
+                        isFamily={this.props.isFamily}
+                        family={this.state.family}
+                        onCheckinStudent={this.props.onCheckinStudent} /> 
+                )} 
             </div>
         )
     }
 }
-export default Family
+export default FamilyPortal

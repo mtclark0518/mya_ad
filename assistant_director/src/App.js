@@ -13,28 +13,7 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="App">
-        <header className="App-header">
-        <Button
-            className="primary"
-            onClick={this.goTo.bind(this, 'landing')}>
-            Home
-        </Button>
-          {
-            !isAuthenticated() &&
-            (
-            <div>
-              <Button className="primary" onClick={this.login.bind(this)}>Staff-Portal</Button>
-              <Button className="primary" onClick={this.goTo.bind(this, 'family')}>Family-Portal</Button>
-            </div>
-            )
-          }
-          {
-            isAuthenticated() &&
-            (
-              <Button className="secondary" onClick={this.logout.bind(this)}>log out</Button>
-            )
-          }
-        </header>
+
       </div>
     );
   }

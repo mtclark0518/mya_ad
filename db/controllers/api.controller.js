@@ -1,6 +1,28 @@
 const db = require('../models');
 
 
+
+//----------------------------------------------------------------
+    //CENTER//----------------------------------------------------------------
+//----------------------------------------------------------------
+
+// the center is the top level component of the application - it will hold everything 
+// it will be hard coded for now as the application doesn't need to be scaled for use by multiple centers
+
+function showCenter(req, res) {
+    db.models.Center.findOne(
+        {
+            include: [ {model: db.models.Student}, {model: db.models.Location}, {model: db.models.Teacher} ],
+            where: { id : 1 },
+        })
+        .then(function(center){
+            console.log('center coming your way');
+            res.json(center);
+        });
+}
+
+
+    
 //----------------------------------------------------------------
     //TEACHERS(USERS)//----------------------------------------------------------------
 //----------------------------------------------------------------
@@ -118,6 +140,25 @@ function updateStudent(req,res){
         });
     });
 }
+function checkinStudent(req,res){
+    console.log('checkinStudent has been initiated'); 
+    console.log(req.body);
+    db.models.Student.findOne({
+        where: { id: req.params.id }
+    })
+    .then(student => {
+        console.log('first checkin')
+        student.updateAttributes({
+            locationId: req.body.homeRoom,
+            checkedIn: req.body.checkin
+        })
+        .then(updatedStudent => {
+            console.log('response prepared');
+            console.log(updatedStudent);
+            res.json(updatedStudent);
+        });
+    });
+}
 
 //----------------------------------------------------------------
     //LOCATIONS//----------------------------------------------------------------
@@ -132,6 +173,7 @@ function showLocations(req, res) {
 }
 
 module.exports = {
+    showCenter: showCenter,
     getTeachers: getTeachers,
     showTeacher: showTeacher,
     getFamilies: getFamilies,
@@ -140,5 +182,6 @@ module.exports = {
     showStudent: showStudent,
     createStudent: createStudent,
     updateStudent: updateStudent,
+    checkinStudent: checkinStudent,
     showLocations: showLocations
 };

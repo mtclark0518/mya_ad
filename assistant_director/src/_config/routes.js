@@ -4,9 +4,11 @@ import App from '../App';
 import Callback from '../_callback/callback';
 import Auth from '../_services/Auth';
 import history from '../history';
-import Landing from '../_containers/Landing';
+import StaffPortal from '../_containers/StaffPortal';
 import Profile from '../_containers/Profile';
-import Family from '../_containers/Family';
+import FamilyPortal from '../_containers/FamilyPortal';
+import Center from '../_containers/Center';
+
 const auth = new Auth();
 
 const handleAuthentication = (nextState, replace) => {
@@ -14,18 +16,13 @@ const handleAuthentication = (nextState, replace) => {
     auth.handleAuthentication();
   }
 }
+
 export const makeMainRoutes = () => {
   return (
       <Router history={history} component={App}>
         <div>
           <Route path="/" render={(props) => 
-            <App auth={auth} {...props} />} 
-          />
-          <Route path="/landing" render={(props) => 
-            <Landing auth={auth} {...props} />} 
-          />
-          <Route path="/family" render={(props) => 
-            <Family {...props} />} 
+            <Center auth={auth} {...props} />} 
           />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
@@ -33,7 +30,7 @@ export const makeMainRoutes = () => {
           }}/>
           <Route path="/profile" render={(props) => (
             !auth.isAuthenticated() ? (
-                <Redirect to = "/landing" />
+                <Redirect to = "/center" />
               ) : (
                 <Profile auth={auth} {...props} />
               )

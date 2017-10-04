@@ -1,33 +1,64 @@
 import React, {Component} from 'react';
 // import {CSSTransitionGroup} from 'react-transition-group'
 import Location from './Location';
-// import Student from './student'
+import Student from './Student'
 import '../_styles/main.css';
 // import '../_styles/animation.css'
 
-
-class LocationList extends Component {        
+class LocationList extends Component {
     render(){
-        let locationArray = this.props.locations.map( (location) => {
+
+        const currentStudents = [];
+        const studentArray = this.props.students.map( (student) => {
+            if(student.checkedIn === true){            
+            console.log(student);
             return(
-                <Location 
+                    <Student
+                        checkedIn={student.checkedIn}
+                        id={student.id}
+                        locationId={student.locationId}
+                        firstName={student.firstName}
+                        gender={student.gender}
+                        homeRoom={student.homeRoom} />
+            )} else {
+                console.log('not checked in');
+                return    
+            }
+        });
+
+
+        const locationArray = this.props.locations.map( (location) => {
+            const roomsCurrentStudents = []
+            studentArray.forEach(function(student) {
+            if (student !== undefined) {
+                console.log('student checked in')
+                console.log(location.id)
+                console.log(student.props.locationId)
+                let stu = student.props;
+                let room = student.props.locationId;
+                currentStudents.push(stu);
+                if ( location.id === room){
+                    console.log(student.props.firstName + ' belongs to ' + location.name)
+                    roomsCurrentStudents.push(stu)
+                }
+            }
+            console.log('this is ' + location.name + '\'s students: ')
+            console.log(roomsCurrentStudents);
+        });            return(
+                <Location
+                    isFamily={this.props.isFamily} 
                     key={location.id}
                     id={location.id}
                     onMoveStudent={this.props.onMoveStudent}
-                    students={location.students}
+                    currentStudents={roomsCurrentStudents}
                     name={location.name}
                     studentCapacity={location.studentCapacity}/>
-                )   
+            )   
         })
         return(
-            <div>
-
                 <div className='locations'>
                     {locationArray}            
                 </div>
-			 
-                
-            </div>
         )
     }
 }

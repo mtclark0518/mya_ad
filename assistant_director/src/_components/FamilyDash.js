@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card} from 'semantic-ui-react';
 import Student from './Student'
-import CheckinStudent from './CheckinStudent'
+
 class FamilyDash extends Component {
     render() {
             let familiesStudents = this.props.family.students.map( (student) => {
@@ -9,10 +9,15 @@ class FamilyDash extends Component {
                 return(
                     <Student
                         key={student.id}
+                        id={student.id}
+                        checkedIn={student.checkedIn}
                         firstName={student.firstName}
                         familyId={student.familyId}
                         locationId={student.locationId}
-                        gender={student.gender} />
+                        homeRoom={student.homeRoom}
+                        gender={student.gender} 
+                        onCheckinStudent={this.props.onCheckinStudent}
+                        isFamily={this.props.isFamily} />
                 )
             })
             console.log(familiesStudents)

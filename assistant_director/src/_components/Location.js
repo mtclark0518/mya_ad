@@ -23,46 +23,43 @@ class Location extends Component {
     
     render() {
         const activeState = this.state.active
-        console.log(activeState)
-        let classRoster = this.props.students.map( (student, index) => {
+        const roster = this.props.currentStudents.map( (student) => {
             return(<Student
-                key={index}
+                key={student.id}
+                checkedIn={student.checkedIn}
                 location={student.locationId}
+                homeRoom={student.homeRoom}
                 id={student.id}
                 firstName={student.firstName} 
-                lastName={student.lastName}
                 gender={student.gender}
-                pin={student.pin}
                 onMoveStudent={this.props.onMoveStudent}/>)
         })
-        console.log(classRoster)
+        console.log(roster)
+        
         return(
             <div className='location'>
-            <div className={this.props.name}>
-                <div 
-                    className='heading'
-                    onClick={this.activate}>
-                        <h3>{ this.props.name}</h3>
-                </div>
+                <div className={this.props.name}>
+                    <div
+                        className='heading'
+                        onClick={this.activate}>
+                            <h3>{this.props.name}</h3>
+                    </div>
 
-                <div>
-                {
-                    this.state.active === true && (
-                            <div>
-                                {classRoster}
-                      <p>active state true</p>
-                            
-                            </div>
-                          
-                    )
-                }
-                {
-                    this.state.active === false && (
-                      <p>active state false</p>
-                    )
-                }
+                    <div>
+                    {
+                        this.state.active === true && (
+                         <div>fuck u
+                         {roster}
+                         </div>                             
+                        )
+                    }
+                    {
+                        this.state.active === false && (
+                        <p>active state false</p>
+                        )
+                    }
+                    </div>
                 </div>
-             </div>
              </div> 
         ) 
     }
