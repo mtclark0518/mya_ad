@@ -93,6 +93,12 @@ class Center extends Component {
                         { !isAuthenticated() && (<Button className="primary" onClick={this.toggleFamilyPortal.bind(this)}>Family-Portal</Button>) }
                     </Header.Content>
                 </Header>
+            { !isAuthenticated() && this.state.isFamily !== true && (
+                <div className="about">
+                    <h1>welcome to {this.state.center.name}</h1>
+                    <p> please choose a portal <br/> powered by 'Mya AD' </p>
+                </div>
+            )}    
             {
                 !isAuthenticated() && this.state.isFamily === true && (
                     <div>
