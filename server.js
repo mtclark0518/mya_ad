@@ -20,9 +20,9 @@ app.use(express.static(path.join(__dirname, 'assistant_director/build')));
 app.use('/', router);
 
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/assistant_director/build/index.html'));
+});
 
 app.listen(PORT, () => console.log('listening on ' + PORT));
 
