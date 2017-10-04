@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Header, Button } from 'semantic-ui-react';
+import { Header, Button, Icon } from 'semantic-ui-react';
 // import LocationList from '../_components/LocationList';
 import '../_styles/main.css';
 import StaffPortal from './StaffPortal';
 import FamilyPortal from './FamilyPortal';
+import Profile from './Profile';
 // import Profile from './Profile';
 const axios = require('axios');
 
@@ -78,13 +79,19 @@ class Center extends Component {
     }
         
 	render() {
+        let profile;
 		const { isAuthenticated } = this.props.auth;
 		return ( 
 			<div className = "Center" > 
                 <Header as='h2'>
                     <Header.Content>
                         { !isAuthenticated() && this.state.isFamily === false && (<Button className="primary" onClick={this.login.bind(this)}>Staff-Portal</Button>)}
-                        { isAuthenticated() && (<Button className="primary" onClick={this.logout.bind(this)}>Staff-Logout</Button>)}
+                        { isAuthenticated() && (
+                            <div>
+                                <Button className="primary" onClick={this.logout.bind(this)}>Staff-Logout</Button>
+                                <Link className='settingsButton' to='/profile'><Button icon='settings'></Button></Link>
+                            </div>
+                            )}
                         { !isAuthenticated() && (<Button className="primary" onClick={this.toggleFamilyPortal.bind(this)}>Family-Portal</Button>) }
                     </Header.Content>
                 </Header>
