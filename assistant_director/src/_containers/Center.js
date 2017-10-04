@@ -10,14 +10,14 @@ import Profile from './Profile';
 const axios = require('axios');
 
 
-
-
 class Center extends Component {
     goTo(route) {this.props.history.replace( `/${route}` )}
     login() { this.props.auth.login(); }
     logout() { this.props.auth.logout(); }
 
-
+	componentDidMount() {
+      this.loadData();
+    }
 	constructor(props){
 		super(props);
 		this.state = {
@@ -35,9 +35,7 @@ class Center extends Component {
         }));
     }
 	
-	componentDidMount() {
-      this.loadData();
-    }
+
     loadData(){
         axios.get('api/center/1')
             .then(response => { 
@@ -60,22 +58,22 @@ class Center extends Component {
 		axios({
 			method: 'PUT',
 			url: 'api/student/' + id, 
-			data:{data: item}})
-			.then(response => {
-				console.log(response.data);
-				this.loadData();
-			});
+            data:{data: item}
+        }).then(response => {
+    		console.log(response.data);
+            this.loadData();
+		});
     }
     checkinStudent(id, checkin, homeRoom){
         console.log('checkin student called');
         axios({
             method: 'PUT',
             url: 'api/student/checkin/' + id ,
-            data: { checkin : checkin, homeRoom : homeRoom} })
-            .then(response => {
-                console.log(response.data);
-                this.loadData();
-            })
+            data: { checkin : checkin, homeRoom : homeRoom}
+        }).then(response => {
+            console.log(response.data);
+            this.loadData();
+        })
     }
         
 	render() {
@@ -83,7 +81,7 @@ class Center extends Component {
 		const { isAuthenticated } = this.props.auth;
 		return ( 
 			<div className = "Center" > 
-                <Header as='h2'>
+                <Header as='h1' className="App-header">
                     <Header.Content>
                         { !isAuthenticated() && this.state.isFamily === false && (<Button className="primary" onClick={this.login.bind(this)}>Staff-Portal</Button>)}
                         { isAuthenticated() && (

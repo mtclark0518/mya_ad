@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 // import {CSSTransitionGroup} from 'react-transition-group'
 import Student from './Student';
-import {  List, Divider, Segment } from 'semantic-ui-react';
+import {  List, Divider, Segment, Header } from 'semantic-ui-react';
 
 import '../_styles/main.css';
 // import '../_styles/animation.css'
@@ -39,18 +39,15 @@ class Location extends Component {
         console.log(roster)
         
         return(
-            <Segment className='location'>
-                <div className={this.props.name}>
-                    <Divider horizontal className='heading' onClick={this.activate}>
-                            {this.props.name}
-                    </Divider>
+            <Segment className=''>
+                    <Header as='h2' onClick={this.activate}>{this.props.name}</Header>
+                    <Divider horizontal></Divider>
                         {this.state.active === true && (
                             <List divided className="roster">{roster}</List>                             
                         )}
                         {this.state.active === false && (
-                            <div>{roster.length}</div>
+                            <div>{roster.length} : {this.props.studentCapacity}</div>
                         )}
-                </div>
             </Segment> 
         ) 
     }

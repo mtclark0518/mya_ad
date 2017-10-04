@@ -41,11 +41,10 @@ class Student extends Component {
         return(
             <div className="students">
                 {this.state.present === false && this.props.isFamily === true && (
-                        <CheckinStudent
-                            student={this.props}
-                            onCheckin={this.checkin.bind(this)}
-                            onCheckinStudent={this.props.onCheckinStudent} />
-
+                    <CheckinStudent
+                        student={this.props}
+                        onCheckin={this.checkin.bind(this)}
+                        onCheckinStudent={this.props.onCheckinStudent} />
                 )}
                 {this.state.present === true && this.props.isFamily === true && (
                     <div className="checkoutStudent">
@@ -55,31 +54,24 @@ class Student extends Component {
                 {this.state.present === true && this.state.updating === false && this.props.isFamily !== true && (
                     <List.Item className='studentProfile'>
                         <List.Content>
-                        <Card>
-                            <Card.Content>
-                                <span className="student-card-name-label">{this.props.firstName}</span>
-                                <Button icon='move' labelPosition='left' onClick={this.update} color="black" label={{content:'Move'}}></Button>
-                            </Card.Content>
-                        </Card>
+                            <Card>
+                                <Card.Content>
+                                    <span className="student-card-name-label">{this.props.firstName}</span>
+                                    <Button icon='move' labelPosition='left' onClick={this.update} color="black" label={{content:'Move'}}></Button>
+                                </Card.Content>
+                            </Card>
                         </List.Content>
                     </List.Item>
                 )}
                 {this.state.present === true && this.state.updating === true && this.props.isFamily !== true && (
-                    <div className="updateStudent">
-                        <UpdateStudent
-                            onUpdate={this.update.bind(this)}
-                            student={this.props}
-                            onMoveStudent={this.props.onMoveStudent} />
-                        <Button
-                            onClick={this.update}>cancel
-                        </Button>
-                    </div>
+                    <UpdateStudent
+                        onUpdate={this.update.bind(this)}
+                        student={this.props}
+                        onMoveStudent={this.props.onMoveStudent} />
                 )}
-
             </div>
         )
     }
-
 }
 export default Student
 

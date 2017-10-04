@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { Form, Button, Radio } from 'semantic-ui-react'
+import { Form, Button, Radio, Label } from 'semantic-ui-react'
 
 
 
@@ -29,10 +29,10 @@ class UpdateStudent extends Component {
 	render() {
 	    return (
 	      <Form onSubmit={event => this.onFormSubmit(event)}>
-	        <Form.Field>
-	          Selected value: <b>{this.state.value} </b>
-	        </Form.Field>
-					<div className='updateStudentInputContainer'>
+					<div className='updateStudentInputContainer'>				
+				  <Form.Field className="updateStudentFormInput">
+						<Label as='a' color='red' size='tiny' icon='close' onClick={this.props.onUpdate} corner='left' />
+					</Form.Field>
 	        <Form.Field className="updateStudentFormInput">
 	          <Radio
 	            label='G'
@@ -69,8 +69,14 @@ class UpdateStudent extends Component {
 	            onChange={this.handleChange}
 	          />
 	        </Form.Field>
+					
+	        <Form.Field control={Button}
+						icon='check'
+						color='green'
+						corner='right'
+					>
+					</Form.Field> 
 					</div>
-	        <Form.Field control={Button}>Submit</Form.Field> 
 	      </Form>
 	    )
 	  }

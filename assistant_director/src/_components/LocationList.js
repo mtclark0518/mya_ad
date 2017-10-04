@@ -58,7 +58,7 @@ class LocationList extends Component {
             )   
         })
         return(
-                <Container className='locations'>
+                <Container>
                     {locationArray}            
                 </Container>
         )
