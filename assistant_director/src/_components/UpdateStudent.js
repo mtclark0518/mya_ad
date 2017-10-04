@@ -73,7 +73,6 @@ class UpdateStudent extends Component {
 	        <Form.Field control={Button}
 						icon='check'
 						color='green'
-						corner='right'
 					>
 					</Form.Field> 
 					</div>

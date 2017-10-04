@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card} from 'semantic-ui-react';
+import { Button, Card, Divider } from 'semantic-ui-react';
 import Student from './Student'
 
 class FamilyDash extends Component {
@@ -23,11 +23,14 @@ class FamilyDash extends Component {
             console.log(familiesStudents)
         return(
             <Card className="familyDash">
+            <Card.Content>
                 <Card.Header>
                     {this.props.family.name } family:
                 </Card.Header>
+                <Divider></Divider>
                 <Card.Content>
                     {familiesStudents}
+                </Card.Content>
                 </Card.Content>
             </Card>
 

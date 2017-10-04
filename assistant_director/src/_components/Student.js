@@ -2,7 +2,8 @@ import React,{Component} from 'react'
 import '../_styles/main.css'
 import UpdateStudent from './UpdateStudent'
 import CheckinStudent from './CheckinStudent'
-import { List, Button, Label, Icon, Divider, Card } from 'semantic-ui-react';
+import CheckoutStudent from './CheckoutStudent';
+import { Container, Button, Label, Icon, Divider, Card } from 'semantic-ui-react';
 
 class Student extends Component {
     constructor(props){
@@ -47,27 +48,23 @@ class Student extends Component {
                         onCheckinStudent={this.props.onCheckinStudent} />
                 )}
                 {this.state.present === true && this.props.isFamily === true && (
-                    <div className="checkoutStudent">
-                        checkout student
-                    </div>
+                    <CheckoutStudent
+                        student={this.props}
+                        onCheckin={this.checkin.bind(this)}
+                        onCheckinStudent={this.props.onCheckinStudent} />
                 )}
                 {this.state.present === true && this.state.updating === false && this.props.isFamily !== true && (
-                    <List.Item className='studentProfile'>
-                        <List.Content>
-                            <Card>
-                                <Card.Content>
-                                    <span className="student-card-name-label">{this.props.firstName}</span>
-                                    <Button icon='move' labelPosition='left' onClick={this.update} color="black" label={{content:'Move'}}></Button>
-                                </Card.Content>
-                            </Card>
-                        </List.Content>
-                    </List.Item>
+                    <Container>
+                        <Button icon='move' content='move' labelPosition='left' onClick={this.update} color="black" label={{as: 'a', basic: true, content:this.props.firstName}}></Button>
+                    </Container>
                 )}
                 {this.state.present === true && this.state.updating === true && this.props.isFamily !== true && (
+                    <Container>
                     <UpdateStudent
                         onUpdate={this.update.bind(this)}
                         student={this.props}
                         onMoveStudent={this.props.onMoveStudent} />
+                    </Container>
                 )}
             </div>
         )

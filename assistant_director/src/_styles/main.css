@@ -8,25 +8,18 @@
     height: 50px;
     padding: 20px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 body {
-    background: rgba(155, 155, 155, .6);
-}
-
-.homePage {
-    background: rgba(rgba(253, 244, 137, 1.0));
-    width: 95%;
-    margin: 0 auto;
-}
-
-.landing {
-    text-align: center;
+    background: rgba(255, 255, 255, 1);
 }
 
 .container {
     margin: auto;
-    background: #212221;
+    margin-bottom: 10px;
 }
 
 .dashHeading {

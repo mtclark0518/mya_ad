@@ -41,9 +41,9 @@ class Location extends Component {
         return(
             <Segment className=''>
                     <Header as='h2' onClick={this.activate}>{this.props.name}</Header>
-                    <Divider horizontal></Divider>
+                    <Divider></Divider>
                         {this.state.active === true && (
-                            <List divided className="roster">{roster}</List>                             
+                            <List divided verticalAlign='middle' className="roster">{roster}</List>                             
                         )}
                         {this.state.active === false && (
                             <div>{roster.length} : {this.props.studentCapacity}</div>

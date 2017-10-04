@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Select } from 'semantic-ui-react';
+import { Container, Form, Button, Select } from 'semantic-ui-react';
 import FamilyPortal from '../_containers/FamilyPortal'
 
 
@@ -54,11 +54,11 @@ class FamilyCheckIn extends Component {
 
     
         return(
-            <Form onSubmit={event=> this.onVerifyFamily(event)}>
-                <Form.Group widths='equal'>
-                    <Form.Select label='Name' options={familyNames} onChange={nameEvent => this.updateFamily(nameEvent)}/> 
-                    <Form.Input label='Password' type='password' placeholder='password' onChange={passwordEvent => this.updatePassword(passwordEvent)}/>
-                <Form.Button>Login</Form.Button>
+            <Form className='familyCheckinForm' onSubmit={event=> this.onVerifyFamily(event)}>
+                <Form.Group>
+                    <Form.Select options={familyNames} placeholder='select' onChange={nameEvent => this.updateFamily(nameEvent)}/> 
+                    <Form.Input type='password' placeholder='password' onChange={passwordEvent => this.updatePassword(passwordEvent)}/>
+                <Form.Field control={Button}>Login</Form.Field>
                 </Form.Group>
             </Form>
         )
