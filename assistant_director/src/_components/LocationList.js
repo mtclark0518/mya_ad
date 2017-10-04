@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // import {CSSTransitionGroup} from 'react-transition-group'
+import { Container } from 'semantic-ui-react';
 import Location from './Location';
 import Student from './Student'
 import '../_styles/main.css';
@@ -57,9 +58,9 @@ class LocationList extends Component {
             )   
         })
         return(
-                <div className='locations'>
+                <Container className='locations'>
                     {locationArray}            
-                </div>
+                </Container>
         )
     }
 }

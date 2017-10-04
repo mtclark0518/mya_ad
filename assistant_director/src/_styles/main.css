@@ -101,3 +101,9 @@ span.link {
     color: green;
     text-decoration: none;
 }
+
+.updateStudentInputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

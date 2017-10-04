@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import '../_styles/main.css'
 import UpdateStudent from './UpdateStudent'
 import CheckinStudent from './CheckinStudent'
-import { Button } from 'semantic-ui-react';
+import { List, Button, Label, Icon, Divider, Card } from 'semantic-ui-react';
 
 class Student extends Component {
     constructor(props){
@@ -41,13 +41,11 @@ class Student extends Component {
         return(
             <div className="students">
                 {this.state.present === false && this.props.isFamily === true && (
-                    <div className="checkinStudent">
                         <CheckinStudent
                             student={this.props}
                             onCheckin={this.checkin.bind(this)}
                             onCheckinStudent={this.props.onCheckinStudent} />
 
-                    </div>
                 )}
                 {this.state.present === true && this.props.isFamily === true && (
                     <div className="checkoutStudent">
@@ -55,9 +53,16 @@ class Student extends Component {
                     </div>
                 )}
                 {this.state.present === true && this.state.updating === false && this.props.isFamily !== true && (
-                    <div className='student'>
-                        <span onClick={this.update}>{this.props.firstName} </span> 
-                    </div>
+                    <List.Item className='studentProfile'>
+                        <List.Content>
+                        <Card>
+                            <Card.Content>
+                                <span className="student-card-name-label">{this.props.firstName}</span>
+                                <Button icon='move' labelPosition='left' onClick={this.update} color="black" label={{content:'Move'}}></Button>
+                            </Card.Content>
+                        </Card>
+                        </List.Content>
+                    </List.Item>
                 )}
                 {this.state.present === true && this.state.updating === true && this.props.isFamily !== true && (
                     <div className="updateStudent">

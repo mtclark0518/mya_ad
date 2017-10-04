@@ -103,10 +103,10 @@ class Center extends Component {
                 isAuthenticated() && (
                     <div>
                         <StaffPortal
-                            isFamily={this.state.isFamily} 
                             locations={this.state.locations}
                             students={this.state.students}
-                            onMoveStudent={this.moveStudent.bind(this)}/>
+                            onMoveStudent={this.moveStudent.bind(this)}
+                            isFamily={this.state.isFamily} />
                     </div>
                 )
             }

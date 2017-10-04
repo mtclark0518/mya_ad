@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import './index.css';
+import './_styles/index.css';
 import '../node_modules/semantic-ui-css/semantic.min.css';
 
 // import registerServiceWorker from './registerServiceWorker';

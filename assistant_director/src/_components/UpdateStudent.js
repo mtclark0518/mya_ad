@@ -32,42 +32,44 @@ class UpdateStudent extends Component {
 	        <Form.Field>
 	          Selected value: <b>{this.state.value} </b>
 	        </Form.Field>
-	        <Form.Field>
+					<div className='updateStudentInputContainer'>
+	        <Form.Field className="updateStudentFormInput">
 	          <Radio
-	            label='Gryffindor'
+	            label='G'
 	            name='radioGroup'
 	            value='1'
 	            checked={this.state.value === '1'}
 	            onChange={this.handleChange}
 	          />
 	        </Form.Field>
-	        <Form.Field>
+	        <Form.Field className="updateStudentFormInput">
 	          <Radio
-	            label='Slytherin'
+	            label='S'
 	            name='radioGroup'
 	            value='2'
 	            checked={this.state.value === '2'}
 	            onChange={this.handleChange}
 	          />
 	        </Form.Field>
-	        <Form.Field>
+	        <Form.Field className="updateStudentFormInput">
 	          <Radio
-	            label='Hufflepuff'
+	            label='H'
 	            name='radioGroup'
 	            value='3'
 	            checked={this.state.value === '3'}
 	            onChange={this.handleChange}
 	          />
 	        </Form.Field>
-	        <Form.Field>
+	        <Form.Field className="updateStudentFormInput">
 	          <Radio
-	            label='Ravenclaw'
+	            label='R'
 	            name='radioGroup'
 	            value='4'
 	            checked={this.state.value === '4'}
 	            onChange={this.handleChange}
 	          />
 	        </Form.Field>
+					</div>
 	        <Form.Field control={Button}>Submit</Form.Field> 
 	      </Form>
 	    )
