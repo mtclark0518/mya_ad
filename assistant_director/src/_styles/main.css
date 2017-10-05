@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .App-header {
@@ -55,29 +55,41 @@ body {
     padding-bottom: 15px;
 }
 
-.gryffindor .heading {
-    background: #BA2811;
+.segment.gryffindor {
+    background: rgba(225, 225, 225, 0.5);
+    border: 1px solid #BA2811;
     color: goldenrod;
+    margin: 1em 13%;
 }
 
-.slytherin .heading {
-    background: #00732F;
-    color: silver;
+.segment.slytherin {
+    background: rgba(225, 225, 225, 0.5);
+    border: 1px solid #00732F;
+    color: darkslategray;
+    margin: 1em 13%;
 }
 
-.hufflepuff .heading {
-    background: #F4BA00;
+.segment.hufflepuff {
+    background: rgba(225, 225, 225, 0.5);
+    border: 1px solid #F4BA00;
     color: #000;
+    margin: 1em 13%;
 }
 
-.ravenclaw .heading {
-    background: #004D81;
-    color: #cd7f32
+.segment.ravenclaw {
+    background: rgba(225, 225, 225, 0.5);
+    border: 1px solid #004D81;
+    color: #cd7f32;
+    margin: 1em 13%;
 }
 
 .student {
     border: 1px solid black;
     padding: 3px;
+}
+
+div.ui.header {
+    color: rgba(25, 25, 25, 1);
 }
 
 button {

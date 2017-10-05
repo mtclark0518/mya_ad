@@ -53,7 +53,7 @@ class Student extends Component {
                         onCheckin={this.checkin.bind(this)}
                         onCheckinStudent={this.props.onCheckinStudent} />
                 )}
-                <Segment>
+                <Segment raised={true}>
                     {this.state.present === true && this.state.updating === false && this.props.isFamily !== true && (
                         <Button 
                             icon='move' 

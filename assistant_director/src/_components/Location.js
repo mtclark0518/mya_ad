@@ -39,7 +39,7 @@ class Location extends Component {
         console.log(roster)
         
         return(
-            <Segment className={this.props.name}>
+            <Segment raised={true} className={this.props.name}>
                 <Header onClick={this.activate}>{this.props.name}</Header>
                 <Divider></Divider>
                         {this.state.active === true && (
