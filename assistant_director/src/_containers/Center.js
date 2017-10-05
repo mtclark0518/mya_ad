@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Header, Button, Icon } from 'semantic-ui-react';
+import { Header, Segment, Button, Icon, Container, Divider, List } from 'semantic-ui-react';
 // import LocationList from '../_components/LocationList';
 import '../_styles/main.css';
 import StaffPortal from './StaffPortal';
 import FamilyPortal from './FamilyPortal';
 import Profile from './Profile';
-// import Profile from './Profile';
 const axios = require('axios');
 
 
@@ -95,8 +94,33 @@ class Center extends Component {
                 </Header>
             { !isAuthenticated() && this.state.isFamily !== true && (
                 <div className="about">
-                    <h1>welcome to {this.state.center.name}</h1>
-                    <p> please choose a portal <br/> powered by 'Mya AD' </p>
+                    <Container>
+                        <Segment raised={true}>
+                            <h1>welcome to {this.state.center.name}... or whatever</h1>
+                            <Segment raised={true}>
+                                <Header>Mya AD: [an intelligent solution to childcare data management]</Header>
+                                <Divider></Divider>
+                                <Header>why?</Header>
+                                    childcare as an industry has a very limited scope of tech innovation <br />
+                                    licensing rules & regulations require childcare centers to maintain increasingly strict records 
+                                    <br />
+                                    <h5>problem1:</h5> 
+                                        employees are expected to maintain these daily logs while also keeping a watchful - attentive - eye on ten kids under five...
+                                        no....not impossible. but stressful to maintain with accuracy. so guess what?..usually...it isn't maintained with accuracy
+                                    <br />
+                                    <h5>problem2:</h5> 
+                                        as an industry comprised largely of individuals from tech-averse demographics; 'old-school' (pen&&paper) recordkeeping methods are prominent
+                                        a center with multiple classrooms is now required to maintian so many different records on a daily basis! which we establish via problem1 is not being done with any accuracy
+                            </Segment>
+                            <Segment raised={true}>
+                                <Header>sooo...lution?</Header>
+                                    as a former large childcare center director and early childhood education center manager - these were issues i faced daily. accountable 
+                                    and accurate recordkeeping dominted my workday/thoughts and cluttered my office beyond belief. enter Mya - my awesome assitant director.
+                                    staff push buttons to update classroom rosters...parents sign their children in and out of their homeroom...Mya does the rest. daily sign/in/out - done.
+                                    room checkin times for all students - done. any movement logs - done...and who initiated the movement...done....i think you get it.
+                            </Segment>
+                        </Segment> 
+                    </Container>
                 </div>
             )}    
             {

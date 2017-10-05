@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import {CSSTransitionGroup} from 'react-transition-group'
-import { Container } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import Location from './Location';
 import Student from './Student'
 import '../_styles/main.css';
@@ -58,9 +58,9 @@ class LocationList extends Component {
             )   
         })
         return(
-                <Container>
+                <Segment>
                     {locationArray}            
-                </Container>
+                </Segment>
         )
     }
 }

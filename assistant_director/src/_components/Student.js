@@ -3,7 +3,7 @@ import '../_styles/main.css'
 import UpdateStudent from './UpdateStudent'
 import CheckinStudent from './CheckinStudent'
 import CheckoutStudent from './CheckoutStudent';
-import { Container, Button, Label, Icon, Divider, Card } from 'semantic-ui-react';
+import { Container, Button, Label, Icon, Divider, Card, Segment } from 'semantic-ui-react';
 
 class Student extends Component {
     constructor(props){
@@ -53,19 +53,22 @@ class Student extends Component {
                         onCheckin={this.checkin.bind(this)}
                         onCheckinStudent={this.props.onCheckinStudent} />
                 )}
-                {this.state.present === true && this.state.updating === false && this.props.isFamily !== true && (
-                    <Container>
-                        <Button icon='move' content='move' labelPosition='left' onClick={this.update} color="black" label={{as: 'a', basic: true, content:this.props.firstName}}></Button>
-                    </Container>
-                )}
-                {this.state.present === true && this.state.updating === true && this.props.isFamily !== true && (
-                    <Container>
-                    <UpdateStudent
-                        onUpdate={this.update.bind(this)}
-                        student={this.props}
-                        onMoveStudent={this.props.onMoveStudent} />
-                    </Container>
-                )}
+                <Segment>
+                    {this.state.present === true && this.state.updating === false && this.props.isFamily !== true && (
+                        <Button 
+                            icon='move' 
+                            content='move' 
+                            labelPosition='left' 
+                            onClick={this.update} color="black" 
+                            label={{as: 'a', basic: true, content:this.props.firstName}} />
+                    )}
+                    {this.state.present === true && this.state.updating === true && this.props.isFamily !== true && (
+                        <UpdateStudent
+                            onUpdate={this.update.bind(this)}
+                            student={this.props}
+                            onMoveStudent={this.props.onMoveStudent} />
+                    )}
+                </Segment>
             </div>
         )
     }
