@@ -9,7 +9,7 @@ My previous industry was working as a childcare center administrator. Childcare 
 ## project build
 1. front end: react(framework), semantic-ui-react(styles), axios(api calls)
 2. back end: nodejs(enviroment), express(server/routes), sequelize(database middleware), posgresql(database)
-3. hosting: heroku <https://https://hidden-brushlands-41079.herokuapp.com>
+3. hosting: heroku <https://hidden-brushlands-41079.herokuapp.com>
 
 ## future goals
 
