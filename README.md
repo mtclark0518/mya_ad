@@ -1,4 +1,4 @@
-# Mya_AD (seriously it needs a better name...open to suggestions...)
+# Mischief Managed
 
 ## a couple sentences about the why && what
 As a new dev entering the community this project serves to showcase my aptitudes && proficiencies as a web developer, && illustrate my ability to think programatically and communicate that thought process through effective commenting/pseudocode.
